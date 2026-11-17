@@ -72,6 +72,23 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 /* Table scroll guard on small screens becomes stacked via wrapper */
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 @media(max-width:640px){.table-wrap table{min-width:560px}}
+/* shadcn Accordion */
+.acc-panel{display:none}
+.acc-panel.open{display:block}
+.acc-btn .chev{transition:transform .2s ease}
+.acc-btn[data-open="true"] .chev{transform:rotate(180deg)}
+/* Timeline — pola shadcn: titik + garis vertikal */
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:2px;background:hsl(var(--border))}
+.tl-dot{position:absolute;left:0;top:2px;display:flex;height:24px;width:24px;align-items:center;justify-content:center;border-radius:999px;border:1px solid hsl(var(--border));background:hsl(var(--background));z-index:1}
+.tl-dot i{display:block;height:8px;width:8px;border-radius:999px;background:hsl(var(--foreground))}
+/* shadcn Chart — bar */
+.chart-track{height:2.25rem;border-radius:6px;background:hsl(var(--muted));overflow:hidden}
+.chart-fill{height:100%;border-radius:6px;background:hsl(var(--foreground))}
+.chart-fill-soft{height:100%;border-radius:6px;background:hsl(var(--muted-foreground))}
+/* shadcn Progress */
+.progress{height:10px;border-radius:999px;background:hsl(var(--secondary));overflow:hidden}
+.progress > div{height:100%;border-radius:999px;background:hsl(var(--primary));transition:width .2s ease}
 </style>
 </head>
 
@@ -136,13 +153,13 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
       <!-- Card: Programmer -->
       <article class="rounded-lg border bg-card text-card-foreground shadow-sm">
         <div class="flex flex-col space-y-1.5 p-5 pb-3">
-          <div><span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">Programmer</span></div>
+          <div><span class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Programmer</span></div>
           <h3 class="font-semibold tracking-tight pt-2">Sistem Biner</h3>
         </div>
         <div class="p-5 pt-0 space-y-4">
           <div class="flex items-center justify-between rounded-md bg-muted px-4 py-3">
             <span class="font-mono text-sm text-muted-foreground">1 + 1 =</span>
-            <span class="font-mono text-2xl font-semibold">10</span>
+            <span class="font-mono text-4xl font-semibold tracking-tight">10</span>
             <span class="text-xs text-muted-foreground">dibaca “satu-nol”</span>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">Di biner, hanya ada 0 dan 1. <span class="font-medium text-foreground">1 + 1 = 10</span> karena 2 dalam desimal = 10 dalam biner. Cara berpikirnya eksploratif dan sistemik — hasil tidak selalu linear.</p>
@@ -156,13 +173,13 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
       <!-- Card: Accounting -->
       <article class="rounded-lg border bg-card text-card-foreground shadow-sm">
         <div class="flex flex-col space-y-1.5 p-5 pb-3">
-          <div><span class="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-semibold">Accounting</span></div>
+          <div><span class="inline-flex items-center gap-1.5 rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-semibold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/><line x1="8" y1="19" x2="8" y2="19.01"/><line x1="12" y1="19" x2="12" y2="19.01"/><line x1="16" y1="19" x2="16" y2="19.01"/></svg>Accounting</span></div>
           <h3 class="font-semibold tracking-tight pt-2">Sistem Desimal</h3>
         </div>
         <div class="p-5 pt-0 space-y-4">
           <div class="flex items-center justify-between rounded-md bg-muted px-4 py-3">
             <span class="font-mono text-sm text-muted-foreground">1 + 1 =</span>
-            <span class="font-mono text-2xl font-semibold">2</span>
+            <span class="font-mono text-4xl font-semibold tracking-tight">2</span>
             <span class="text-xs text-muted-foreground">pasti &amp; tercatat</span>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">Di akuntansi, <span class="font-medium text-foreground">1 + 1 harus = 2</span>. Tidak ada tafsir. Setiap angka harus bisa diaudit, seimbang, dan dipertanggungjawabkan.</p>
@@ -182,12 +199,47 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
         <p class="mt-1.5 text-sm text-muted-foreground leading-relaxed"><span class="font-medium text-foreground">Mas Pandu</span> — RnD dan Software Engineer di PT Ethes Teknologi Makmur — adalah contoh nyata materi ini. Ketika disuruh Pak Beni membuat aplikasi untuk divisi finance, ia tidak langsung membuka editor dan menulis kode.</p>
       </div>
       <div class="p-5 md:p-6 space-y-5">
-        <ol class="grid gap-px overflow-hidden rounded-md border bg-border list-none p-0 m-0 sm:grid-cols-2 lg:grid-cols-4">
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">LANGKAH 01</p><p class="mt-1.5 text-sm font-semibold">Tugas dari Pak Beni</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Mas Pandu diminta membuat aplikasi untuk divisi finance.</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">LANGKAH 02</p><p class="mt-1.5 text-sm font-semibold">Berhenti sejenak dari programming</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Ia menahan diri untuk tidak langsung membuat produk — padahal secara teknis ia bisa saja langsung coding.</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">LANGKAH 03</p><p class="mt-1.5 text-sm font-semibold">Pelajari cara accounting bekerja</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Ia mempelajari dulu bagaimana divisi accounting bekerja: alur kerjanya seperti apa, dan apa saja kebutuhannya.</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">LANGKAH 04</p><p class="mt-1.5 text-sm font-semibold">Baru buat produknya</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Setelah memahami alur kerja dan kebutuhan divisi finance, barulah ia membangun aplikasinya.</p></li>
-        </ol>
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-stretch" role="list" aria-label="Alur kerja Mas Pandu">
+          <div class="flex-1 rounded-lg border bg-card p-4 shadow-sm" role="listitem">
+            <div class="flex items-center justify-between">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">1</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-muted-foreground" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>
+            </div>
+            <p class="mt-3 font-mono text-xs text-muted-foreground">LANGKAH 01</p>
+            <p class="mt-1 text-sm font-semibold">Tugas dari Pak Beni</p>
+            <p class="mt-1 text-sm text-muted-foreground leading-relaxed">Mas Pandu diminta membuat aplikasi untuk divisi finance.</p>
+          </div>
+          <div class="flex items-center justify-center shrink-0" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rotate-90 text-muted-foreground lg:rotate-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          <div class="flex-1 rounded-lg border bg-card p-4 shadow-sm" role="listitem">
+            <div class="flex items-center justify-between">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">2</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-muted-foreground" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="10" y1="15" x2="10" y2="9"/><line x1="14" y1="15" x2="14" y2="9"/></svg>
+            </div>
+            <p class="mt-3 font-mono text-xs text-muted-foreground">LANGKAH 02</p>
+            <p class="mt-1 text-sm font-semibold">Berhenti sejenak dari programming</p>
+            <p class="mt-1 text-sm text-muted-foreground leading-relaxed">Ia menahan diri untuk tidak langsung membuat produk — padahal secara teknis ia bisa saja langsung coding.</p>
+          </div>
+          <div class="flex items-center justify-center shrink-0" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rotate-90 text-muted-foreground lg:rotate-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          <div class="flex-1 rounded-lg border bg-card p-4 shadow-sm" role="listitem">
+            <div class="flex items-center justify-between">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">3</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-muted-foreground" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <p class="mt-3 font-mono text-xs text-muted-foreground">LANGKAH 03</p>
+            <p class="mt-1 text-sm font-semibold">Pelajari cara accounting bekerja</p>
+            <p class="mt-1 text-sm text-muted-foreground leading-relaxed">Ia mempelajari dulu bagaimana divisi accounting bekerja: alur kerjanya seperti apa, dan apa saja kebutuhannya.</p>
+          </div>
+          <div class="flex items-center justify-center shrink-0" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rotate-90 text-muted-foreground lg:rotate-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          <div class="flex-1 rounded-lg border bg-card p-4 shadow-sm" role="listitem">
+            <div class="flex items-center justify-between">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">4</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-muted-foreground" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+            </div>
+            <p class="mt-3 font-mono text-xs text-muted-foreground">LANGKAH 04</p>
+            <p class="mt-1 text-sm font-semibold">Baru buat produknya</p>
+            <p class="mt-1 text-sm text-muted-foreground leading-relaxed">Setelah memahami alur kerja dan kebutuhan divisi finance, barulah ia membangun aplikasinya.</p>
+          </div>
+        </div>
 
         <div class="grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2">
           <div class="bg-card p-4 md:p-5">
@@ -222,6 +274,8 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
             <span class="font-semibold" id="burnMonth">6 bulan</span>
             <span class="text-xs font-medium text-muted-foreground" id="burnCost">Butuh runway kuat</span>
           </div>
+          <div class="progress mt-4" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="6" aria-label="Runway yang harus disiapkan" id="burnProgress"><div id="burnBar" style="width:50%"></div></div>
+          <p class="mt-1.5 text-xs text-muted-foreground">Runway yang harus disiapkan</p>
           <p class="mt-3 text-xs leading-relaxed text-muted-foreground">Semakin lama fase ini, semakin besar modal, kesabaran, dan kepercayaan yang dibutuhkan owner &amp; tim.</p>
         </div>
       </div>
@@ -235,6 +289,38 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
         <p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Data laporan keuangan GoTo — induk Gojek — menunjukkan rugi bersih dalam dua tahun terakhir: <span class="font-medium text-foreground">Rp5,15 triliun di 2024</span> dan <span class="font-medium text-foreground">Rp1,18 triliun di 2025</span>.</p>
       </div>
       <div class="p-5 md:p-6 space-y-5">
+        <figure class="rounded-lg border bg-card p-4 md:p-5" role="img" aria-label="Bar chart rugi bersih GoTo: 2024 sebesar Rp5,15 triliun dan 2025 sebesar Rp1,18 triliun">
+          <div class="flex items-baseline justify-between gap-3">
+            <figcaption class="text-sm font-semibold">Rugi bersih GoTo per tahun</figcaption>
+            <span class="text-xs text-muted-foreground">dalam Rp triliun</span>
+          </div>
+          <div class="mt-5 space-y-5">
+            <div>
+              <div class="flex items-baseline justify-between gap-3 text-sm">
+                <span class="font-medium">2024</span>
+                <span class="font-mono text-[13px] font-semibold">−Rp5,15 T</span>
+              </div>
+              <div class="chart-track mt-2"><div class="chart-fill" style="width:100%"></div></div>
+              <p class="mt-1.5 text-xs text-muted-foreground">Pendapatan Rp15,89 T</p>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between gap-3 text-sm">
+                <span class="font-medium">2025</span>
+                <span class="font-mono text-[13px] font-semibold">−Rp1,18 T</span>
+              </div>
+              <div class="chart-track mt-2"><div class="chart-fill-soft" style="width:23%"></div></div>
+              <p class="mt-1.5 text-xs text-muted-foreground">Pendapatan Rp18,32 T (+15,27%)</p>
+            </div>
+          </div>
+          <div class="mt-6 border-t pt-4">
+            <div class="flex items-baseline justify-between gap-3 text-sm">
+              <span class="font-medium">Rugi menyusut · 2024 → 2025</span>
+              <span class="font-mono text-[13px] font-semibold">77%</span>
+            </div>
+            <div class="progress mt-2" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" aria-label="Rugi menyusut 77 persen"><div style="width:77%"></div></div>
+          </div>
+        </figure>
+
         <div class="grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2">
           <div class="bg-card p-4 md:p-5">
             <p class="font-mono text-xs text-muted-foreground">2024 · TAHUN PENUH</p>
@@ -290,8 +376,11 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
     </div>
     <div class="mt-6 grid gap-4 md:grid-cols-2">
       <article class="rounded-lg border bg-card shadow-sm p-5 md:p-6">
-        <p class="font-mono text-xs text-muted-foreground">01</p>
-        <h3 class="mt-2 font-semibold tracking-tight">Egosentris</h3>
+        <div class="flex items-center justify-between">
+          <span class="flex h-10 w-10 items-center justify-center rounded-md bg-secondary text-secondary-foreground"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/></svg></span>
+          <p class="font-mono text-xs text-muted-foreground">01</p>
+        </div>
+        <h3 class="mt-3 font-semibold tracking-tight">Egosentris</h3>
         <p class="mt-1 text-sm font-medium">“Kode saya, cara saya, selera saya.”</p>
         <p class="mt-3 text-sm text-muted-foreground leading-relaxed">Programmer dilarang egosentris. Produk dibuat untuk user, bukan untuk memuaskan ego pembuatnya. Kalau tidak mau mendengar user, tim, dan owner — teknologi secanggih apa pun akan ditinggalkan.</p>
         <ul class="mt-4 space-y-2 text-sm text-muted-foreground list-disc pl-5 leading-relaxed">
@@ -301,8 +390,11 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
         </ul>
       </article>
       <article class="rounded-lg border bg-card shadow-sm p-5 md:p-6">
-        <p class="font-mono text-xs text-muted-foreground">02</p>
-        <h3 class="mt-2 font-semibold tracking-tight">Merasa produknya sudah paling sempurna</h3>
+        <div class="flex items-center justify-between">
+          <span class="flex h-10 w-10 items-center justify-center rounded-md bg-secondary text-secondary-foreground"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>
+          <p class="font-mono text-xs text-muted-foreground">02</p>
+        </div>
+        <h3 class="mt-3 font-semibold tracking-tight">Merasa produknya sudah paling sempurna</h3>
         <p class="mt-1 text-sm font-medium">Inilah “penyakit programmer” menurut Pak Beni.</p>
         <p class="mt-3 text-sm text-muted-foreground leading-relaxed">Saat merasa sempurna, programmer berhenti belajar, berhenti menguji, dan berhenti mendengar keluhan. Padahal produk yang hidup selalu punya bug, selalu bisa lebih cepat, lebih aman, dan lebih mudah dipakai.</p>
         <ul class="mt-4 space-y-2 text-sm text-muted-foreground list-disc pl-5 leading-relaxed">
@@ -324,12 +416,44 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
       <p class="text-muted-foreground max-w-2xl">Analogi film <em>Natalie</em>: pemahat tidak langsung memahat. Ia mempelajari sifat, kebiasaan, dan kehidupan modelnya dulu.</p>
     </div>
 
-    <ol class="mt-6 grid gap-px overflow-hidden rounded-lg border bg-border shadow-sm sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0">
-      <li class="bg-card p-5"><p class="font-mono text-xs text-muted-foreground">STEP 01</p><h3 class="mt-2 text-sm font-semibold tracking-tight">Kenali modelnya</h3><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Seniman pahat mengamati siapa yang dipahat: sifat, gerak, keseharian. Bukan sekadar wajahnya.</p></li>
-      <li class="bg-card p-5"><p class="font-mono text-xs text-muted-foreground">STEP 02</p><h3 class="mt-2 text-sm font-semibold tracking-tight">Pahami kebutuhan user</h3><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Gali masalah nyata user, bukan asumsi di kepala sendiri.</p></li>
-      <li class="bg-card p-5"><p class="font-mono text-xs text-muted-foreground">STEP 03</p><h3 class="mt-2 text-sm font-semibold tracking-tight">Petakan alur kerja</h3><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Ikuti bagaimana user bekerja dari pagi sampai selesai. Di situlah gesekan &amp; peluang produk terlihat.</p></li>
-      <li class="bg-card p-5"><p class="font-mono text-xs text-muted-foreground">STEP 04</p><h3 class="mt-2 text-sm font-semibold tracking-tight">Baru “memahat” produk</h3><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Coding adalah tahap akhir. Produk yang tepat lahir dari pemahaman, bukan dari menebak.</p></li>
-    </ol>
+    <div class="mt-6 flex items-center justify-center gap-3 text-xs font-medium text-muted-foreground" aria-hidden="true">
+      <span>Seniman pahat</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="18 8 22 12 18 16"/><polyline points="6 8 2 12 6 16"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+      <span>Programmer</span>
+      <span class="hidden sm:inline">— pola yang sama, nomor langkahnya berpasangan</span>
+    </div>
+
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+      <article class="rounded-lg border bg-card shadow-sm p-5 md:p-6">
+        <div class="flex items-center gap-2.5">
+          <span class="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-secondary-foreground"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <div class="leading-tight">
+            <h3 class="font-semibold tracking-tight">Seniman Pahat</h3>
+            <p class="text-xs text-muted-foreground">Film <em>Natalie</em></p>
+          </div>
+        </div>
+        <ol class="mt-5 space-y-4 list-none p-0 m-0">
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold">1</span><div><p class="text-sm font-semibold">Kenali modelnya</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Seniman pahat mengamati siapa yang dipahat: sifat, gerak, keseharian. Bukan sekadar wajahnya.</p></div></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold">2</span><div><p class="text-sm font-semibold">Pahami dulu, pahat kemudian</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Pemahat tidak langsung memahat — ia mempelajari sifat, kebiasaan, dan kehidupan modelnya dulu.</p></div></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold">3</span><div><p class="text-sm font-semibold">Baru memahat</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Pahatan dibuat paling akhir, setelah pemahaman tentang modelnya utuh.</p></div></li>
+        </ol>
+      </article>
+
+      <article class="rounded-lg border bg-card shadow-sm p-5 md:p-6">
+        <div class="flex items-center gap-2.5">
+          <span class="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <div class="leading-tight">
+            <h3 class="font-semibold tracking-tight">Programmer</h3>
+            <p class="text-xs text-muted-foreground">Materi 10 &amp; 11</p>
+          </div>
+        </div>
+        <ol class="mt-5 space-y-4 list-none p-0 m-0">
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">1</span><div><p class="text-sm font-semibold">Pahami kebutuhan user</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Gali masalah nyata user, bukan asumsi di kepala sendiri.</p></div></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">2</span><div><p class="text-sm font-semibold">Petakan alur kerja</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Ikuti bagaimana user bekerja dari pagi sampai selesai. Di situlah gesekan &amp; peluang produk terlihat.</p></div></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">3</span><div><p class="text-sm font-semibold">Baru “memahat” produk</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Coding adalah tahap akhir. Produk yang tepat lahir dari pemahaman, bukan dari menebak.</p></div></li>
+        </ol>
+      </article>
+    </div>
 
     <div class="mt-4 flex flex-col gap-2 rounded-lg border bg-muted/40 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-4">
       <p class="text-sm font-semibold shrink-0">Rumus Pak Beni</p>
@@ -355,22 +479,37 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
         <button class="tab-btn inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium flex-1 sm:flex-none" data-tab="bumn" data-active="false" role="tab">Problem BUMN</button>
       </div>
 
-      <div id="panel-uiux" class="tabpanel active mt-4 rounded-lg border bg-card shadow-sm">
-        <div class="p-5 md:p-6 pb-3"><h3 class="font-semibold tracking-tight">BCA unggul di rasa pakai</h3></div>
-        <div class="table-wrap px-2 pb-2">
-          <table class="w-full text-sm">
-            <thead><tr class="border-b">
-              <th class="h-10 px-3 text-left align-middle font-medium text-muted-foreground">Aspek</th>
-              <th class="h-10 px-3 text-left align-middle font-medium text-muted-foreground">BCA</th>
-              <th class="h-10 px-3 text-left align-middle font-medium text-muted-foreground">Bank BUMN (umumnya)</th>
-            </tr></thead>
-            <tbody>
-              <tr class="border-b"><td class="p-3 align-top font-medium">Aplikasi</td><td class="p-3 align-top text-muted-foreground">myBCA &amp; BCA Mobile fokus, cepat, konsisten. Nasabah hafal alurnya.</td><td class="p-3 align-top text-muted-foreground">Sering berganti aplikasi &amp; tampilan (Livin’, BRImo, wondr, BSI Mobile) — perlu adaptasi ulang.</td></tr>
-              <tr class="border-b"><td class="p-3 align-top font-medium">Fokus</td><td class="p-3 align-top text-muted-foreground">Transaksi harian yang mulus = loyalitas.</td><td class="p-3 align-top text-muted-foreground">Banyak program &amp; penugasan negara, fokus produk terpecah.</td></tr>
-              <tr><td class="p-3 align-top font-medium">Pelajaran</td><td class="p-3 align-top text-muted-foreground" colspan="2">User tidak menilai siapa pemilik bank. User menilai: <em>“cepat tidak? ribet tidak? error tidak?”</em> — persis prinsip Materi 11: pahami alur kerja user.</td></tr>
-            </tbody>
-          </table>
+      <div id="panel-uiux" class="tabpanel active mt-4 rounded-lg border bg-card shadow-sm p-5 md:p-6">
+        <h3 class="font-semibold tracking-tight">BCA unggul di rasa pakai</h3>
+        <div class="mt-4 grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2">
+          <div class="bg-zinc-950 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 p-4 md:p-5">
+            <span class="inline-flex items-center rounded-full border border-zinc-700 dark:border-zinc-300 px-2.5 py-0.5 text-xs font-semibold">BCA · Swasta</span>
+            <div class="mt-4 space-y-4">
+              <div class="flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 opacity-70" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                <div><p class="text-sm font-semibold">Aplikasi</p><p class="mt-0.5 text-sm opacity-80 leading-relaxed">myBCA &amp; BCA Mobile fokus, cepat, konsisten. Nasabah hafal alurnya.</p></div>
+              </div>
+              <div class="flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 opacity-70" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <div><p class="text-sm font-semibold">Fokus</p><p class="mt-0.5 text-sm opacity-80 leading-relaxed">Transaksi harian yang mulus = loyalitas.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-card p-4 md:p-5">
+            <span class="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">Bank BUMN · Umumnya</span>
+            <div class="mt-4 space-y-4">
+              <div class="flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                <div><p class="text-sm font-semibold">Aplikasi</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Sering berganti aplikasi &amp; tampilan (Livin’, BRImo, wondr, BSI Mobile) — perlu adaptasi ulang.</p></div>
+              </div>
+              <div class="flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <div><p class="text-sm font-semibold">Fokus</p><p class="mt-0.5 text-sm text-muted-foreground leading-relaxed">Banyak program &amp; penugasan negara, fokus produk terpecah.</p></div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="mt-4 rounded-md bg-muted px-4 py-3 text-sm leading-relaxed"><span class="font-medium">Pelajaran:</span> <span class="text-muted-foreground">User tidak menilai siapa pemilik bank. User menilai: <em>“cepat tidak? ribet tidak? error tidak?”</em> — persis prinsip Materi 11: pahami alur kerja user.</span></div>
       </div>
 
       <div id="panel-aman" class="tabpanel mt-4 rounded-lg border bg-card shadow-sm p-5 md:p-6">
@@ -404,20 +543,56 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
         <p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Mei 2023, Bank Syariah Indonesia (BSI) — bank BUMN hasil merger — diserang ransomware. Ini contoh nyata perbedaan yang disorot Pak Beni: bank BUMN bisa kena dari sistemnya sendiri.</p>
       </div>
       <div class="p-5 md:p-6 space-y-5">
-        <ol class="grid gap-px overflow-hidden rounded-md border bg-border list-none p-0 m-0 sm:grid-cols-2">
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">8 MEI 2023</p><p class="mt-1.5 text-sm font-semibold">Layanan lumpuh total</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Mobile banking, ATM, layanan teller, dan transfer tidak bisa dipakai nasabah di seluruh Indonesia.</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">11 MEI 2023</p><p class="mt-1.5 text-sm font-semibold">Pulih bertahap</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Layanan dibuka kembali secara bertahap setelah berhari-hari nasabah tidak bisa bertransaksi normal.</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">KLAIM LOCKBIT 3.0</p><p class="mt-1.5 text-sm font-semibold">1,5 TB data dicuri</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Geng ransomware LockBit 3.0 mengklaim mencuri 1,5 TB data — termasuk data sekitar 15 juta nasabah — dan meminta tebusan USD 20 juta (sekitar Rp296 miliar).</p></li>
-          <li class="bg-card p-4"><p class="font-mono text-xs text-muted-foreground">16 MEI 2023</p><p class="mt-1.5 text-sm font-semibold">Data dipublikasikan</p><p class="mt-1 text-sm text-muted-foreground leading-relaxed">Setelah tebusan tidak dibayar, LockBit mempublikasikan data curian tersebut — serangan ini menembus sistem inti bank, bukan kesalahan nasabah.</p></li>
-        </ol>
+        <div class="timeline space-y-4">
+          <div class="relative pl-10">
+            <span class="tl-dot"><i></i></span>
+            <div class="rounded-lg border bg-card p-4 shadow-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-destructive px-2.5 py-0.5 text-xs font-semibold text-destructive-foreground">8 Mei 2023</span>
+                <p class="text-sm font-semibold">Layanan lumpuh total</p>
+              </div>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">Mobile banking, ATM, layanan teller, dan transfer tidak bisa dipakai nasabah di seluruh Indonesia.</p>
+            </div>
+          </div>
+          <div class="relative pl-10">
+            <span class="tl-dot"><i></i></span>
+            <div class="rounded-lg border bg-card p-4 shadow-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">11 Mei 2023</span>
+                <p class="text-sm font-semibold">Pulih bertahap</p>
+              </div>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">Layanan dibuka kembali secara bertahap setelah berhari-hari nasabah tidak bisa bertransaksi normal.</p>
+            </div>
+          </div>
+          <div class="relative pl-10">
+            <span class="tl-dot"><i></i></span>
+            <div class="rounded-lg border bg-card p-4 shadow-sm">
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">Klaim LockBit 3.0</span>
+                <p class="text-sm"><span class="font-mono text-2xl font-semibold tracking-tight">1,5 TB</span> <span class="font-semibold">data dicuri</span></p>
+              </div>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">Geng ransomware LockBit 3.0 mengklaim mencuri 1,5 TB data — termasuk data sekitar <span class="font-medium text-foreground">15 juta nasabah</span> — dan meminta tebusan <span class="font-medium text-foreground">USD 20 juta</span> (sekitar Rp296 miliar).</p>
+            </div>
+          </div>
+          <div class="relative pl-10">
+            <span class="tl-dot"><i></i></span>
+            <div class="rounded-lg border bg-card p-4 shadow-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">16 Mei 2023</span>
+                <p class="text-sm font-semibold">Data dipublikasikan</p>
+              </div>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">Setelah tebusan tidak dibayar, LockBit mempublikasikan data curian tersebut — serangan ini menembus sistem inti bank, bukan kesalahan nasabah.</p>
+            </div>
+          </div>
+        </div>
 
         <div class="grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2">
           <div class="bg-card p-4 md:p-5">
-            <span class="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">BSI · BUMN — Jebol dari Sistem</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6" y2="6.01"/><line x1="6" y1="18" x2="6" y2="18.01"/></svg>BSI · BUMN — Jebol dari Sistem</span>
             <p class="mt-3 text-sm text-muted-foreground leading-relaxed">Penyerang masuk ke <span class="font-medium text-foreground">sistem inti bank</span>: server disandera ransomware, layanan mati berhari-hari, data jutaan nasabah bocor. Nasabah tidak melakukan kesalahan apa pun — yang kalah adalah pertahanan sistem banknya.</p>
           </div>
           <div class="bg-zinc-950 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 p-4 md:p-5">
-            <span class="inline-flex items-center rounded-full border border-zinc-700 dark:border-zinc-300 px-2.5 py-0.5 text-xs font-semibold">BCA · Swasta — Risiko di Sisi User</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-zinc-700 dark:border-zinc-300 px-2.5 py-0.5 text-xs font-semibold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><polyline points="9 12 11 14 15 10"/></svg>BCA · Swasta — Risiko di Sisi User</span>
             <p class="mt-3 text-sm opacity-90 leading-relaxed">Sistem inti BCA relatif aman dan tidak jebol seperti kasus BSI. Kasus yang menimpa nasabah BCA umumnya berawal dari <span class="font-medium">sisi user sendiri</span>: mengklik link phishing, masuk ke situs / aplikasi palsu, lalu tanpa sadar menyerahkan username, PIN, atau kode OTP ke penipu. Banknya tidak dibobol — nasabahnya yang ditipu.</p>
           </div>
         </div>
@@ -492,23 +667,50 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
       <p class="text-muted-foreground max-w-2xl">Semua materi di atas bukan hanya untuk di kantor Ethes. Ini pola yang berulang di karier, bisnis, dan hidup sehari-hari.</p>
     </div>
 
-    <div class="mt-6 rounded-lg border bg-card shadow-sm overflow-hidden">
-      <div class="table-wrap">
-      <table class="w-full text-sm">
-        <thead><tr class="border-b bg-muted/50">
-          <th class="h-11 px-4 text-left align-middle font-medium text-muted-foreground">Prinsip</th>
-          <th class="h-11 px-4 text-left align-middle font-medium text-muted-foreground">Di Pekerjaan</th>
-          <th class="h-11 px-4 text-left align-middle font-medium text-muted-foreground">Di Kehidupan</th>
-        </tr></thead>
-        <tbody class="[&_tr:last-child]:border-0">
-          <tr class="border-b"><td class="p-4 align-top"><p class="font-medium">Siap “bakar” sumber daya</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 1 — Software house</p></td><td class="p-4 align-top text-muted-foreground">Proyek besar butuh runway: waktu, tenaga, dan biaya sebelum hasil terlihat. Jangan janji instan.</td><td class="p-4 align-top text-muted-foreground">Belajar skill, bangun bisnis, kuliah — semua fase awalnya “bakar” dulu. Yang bertahan, yang panen.</td></tr>
-          <tr class="border-b"><td class="p-4 align-top"><p class="font-medium">Fleksibel cara berpikir</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 3 — 1+1=10 / =2</p></td><td class="p-4 align-top text-muted-foreground">Mampu berpindah lensa: teknis, bisnis, keuangan. Tidak kaku di satu cara pandang.</td><td class="p-4 align-top text-muted-foreground">Masalah yang sama bisa punya jawaban berbeda tergantung konteks. Dewasa = paham konteks.</td></tr>
-          <tr class="border-b"><td class="p-4 align-top"><p class="font-medium">Rendah hati &amp; mau iterasi</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 2 &amp; 4 — Anti ego</p></td><td class="p-4 align-top text-muted-foreground">Terbuka pada review, QA, dan keluhan user. Produk membaik karena mau dikoreksi.</td><td class="p-4 align-top text-muted-foreground">Hubungan &amp; reputasi awet karena mau mendengar, bukan selalu ingin benar sendiri.</td></tr>
-          <tr class="border-b"><td class="p-4 align-top"><p class="font-medium">Kenali manusia dulu</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 10 &amp; 11 — Seniman</p></td><td class="p-4 align-top text-muted-foreground">Riset user &amp; workflow sebelum coding menghemat bulan-bulan revisi.</td><td class="p-4 align-top text-muted-foreground">Empati: pahami kebiasaan &amp; kebutuhan orang lain sebelum menilai atau memberi solusi.</td></tr>
-          <tr class="border-b"><td class="p-4 align-top"><p class="font-medium">Efisiensi mengalahkan ukuran</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 6 &amp; 7 — BCA vs BUMN</p></td><td class="p-4 align-top text-muted-foreground">Tim kecil yang fokus bisa mengalahkan tim besar yang birokratis.</td><td class="p-4 align-top text-muted-foreground">Bukan siapa paling sibuk / paling banyak, tapi siapa paling efektif &amp; dipercaya.</td></tr>
-          <tr><td class="p-4 align-top"><p class="font-medium">Jadi orang benar</p><p class="mt-0.5 text-xs text-muted-foreground">Materi 8 &amp; 9 — Fundamental</p></td><td class="p-4 align-top text-muted-foreground">Punya prinsip &amp; data sebelum setuju. Hormati batas owner &amp; rekan kerja.</td><td class="p-4 align-top text-muted-foreground">Integritas: tidak ikut arus tren tanpa dasar, tidak menjual prinsip demi diterima.</td></tr>
-        </tbody>
-      </table>
+    <div class="mt-6 rounded-lg border bg-card shadow-sm">
+      <div class="divide-y">
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="true" aria-expanded="true"><span><span class="text-sm font-medium md:text-[15px]">Siap “bakar” sumber daya</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 1 — Software house</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel open px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Proyek besar butuh runway: waktu, tenaga, dan biaya sebelum hasil terlihat. Jangan janji instan.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Belajar skill, bangun bisnis, kuliah — semua fase awalnya “bakar” dulu. Yang bertahan, yang panen.</p></div>
+          </div></div>
+        </div>
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="false" aria-expanded="false"><span><span class="text-sm font-medium md:text-[15px]">Fleksibel cara berpikir</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 3 — 1+1=10 / =2</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Mampu berpindah lensa: teknis, bisnis, keuangan. Tidak kaku di satu cara pandang.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Masalah yang sama bisa punya jawaban berbeda tergantung konteks. Dewasa = paham konteks.</p></div>
+          </div></div>
+        </div>
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="false" aria-expanded="false"><span><span class="text-sm font-medium md:text-[15px]">Rendah hati &amp; mau iterasi</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 2 &amp; 4 — Anti ego</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Terbuka pada review, QA, dan keluhan user. Produk membaik karena mau dikoreksi.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Hubungan &amp; reputasi awet karena mau mendengar, bukan selalu ingin benar sendiri.</p></div>
+          </div></div>
+        </div>
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="false" aria-expanded="false"><span><span class="text-sm font-medium md:text-[15px]">Kenali manusia dulu</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 10 &amp; 11 — Seniman</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Riset user &amp; workflow sebelum coding menghemat bulan-bulan revisi.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Empati: pahami kebiasaan &amp; kebutuhan orang lain sebelum menilai atau memberi solusi.</p></div>
+          </div></div>
+        </div>
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="false" aria-expanded="false"><span><span class="text-sm font-medium md:text-[15px]">Efisiensi mengalahkan ukuran</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 6 &amp; 7 — BCA vs BUMN</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Tim kecil yang fokus bisa mengalahkan tim besar yang birokratis.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Bukan siapa paling sibuk / paling banyak, tapi siapa paling efektif &amp; dipercaya.</p></div>
+          </div></div>
+        </div>
+        <div>
+          <h3><button class="acc-btn flex w-full items-center justify-between gap-3 px-4 py-4 text-left md:px-5" data-open="false" aria-expanded="false"><span><span class="text-sm font-medium md:text-[15px]">Jadi orang benar</span><span class="mt-0.5 block text-xs text-muted-foreground">Materi 8 &amp; 9 — Fundamental</span></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3>
+          <div class="acc-panel px-4 pb-5 md:px-5"><div class="grid gap-3 md:grid-cols-2">
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Pekerjaan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Punya prinsip &amp; data sebelum setuju. Hormati batas owner &amp; rekan kerja.</p></div>
+            <div class="rounded-md bg-muted/50 p-4"><p class="text-xs font-semibold">Di Kehidupan</p><p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">Integritas: tidak ikut arus tren tanpa dasar, tidak menjual prinsip demi diterima.</p></div>
+          </div></div>
+        </div>
       </div>
     </div>
 
@@ -550,12 +752,34 @@ tabs.forEach(function(t){
   });
 });
 var burn = document.getElementById('burn'), bm = document.getElementById('burnMonth'), bc = document.getElementById('burnCost');
+var bBar = document.getElementById('burnBar'), bProg = document.getElementById('burnProgress');
 function upd(){
   var v = +burn.value;
   bm.textContent = v + ' bulan';
   bc.textContent = v <= 3 ? 'Runway pendek' : v <= 6 ? 'Butuh runway kuat' : v <= 9 ? 'Runway sangat kuat' : 'Modal & mental baja';
+  if(bBar) bBar.style.width = (v / 12 * 100) + '%';
+  if(bProg) bProg.setAttribute('aria-valuenow', v);
 }
 if(burn){ burn.addEventListener('input', upd); upd(); }
+/* Accordion — shadcn pattern, single open */
+var accBtns = document.querySelectorAll('.acc-btn');
+accBtns.forEach(function(b){
+  b.addEventListener('click', function(){
+    var wasOpen = b.getAttribute('data-open') === 'true';
+    accBtns.forEach(function(x){
+      x.setAttribute('data-open','false');
+      x.setAttribute('aria-expanded','false');
+      var p = x.closest('div').nextElementSibling;
+      if(p) p.classList.remove('open');
+    });
+    if(!wasOpen){
+      b.setAttribute('data-open','true');
+      b.setAttribute('aria-expanded','true');
+      var panel = b.closest('div').nextElementSibling;
+      if(panel) panel.classList.add('open');
+    }
+  });
+});
 </script>
 </body>
 </html>
